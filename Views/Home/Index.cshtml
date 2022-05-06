@@ -12,11 +12,14 @@
 
 <p>View Tipada</p>
 
-<form action="Home/Lista" method="post">
-    <fieldset>
-        <legend>Informação de Pessoa</legend>
+@*<form action="Home/Lista" method="post">*@
+@using (Html.BeginForm("Lista","Home",FormMethod.Post))
+{ 
+<fieldset>
+    <legend>Informação de Pessoa</legend>
 
-        <div>
+    @*versão HTML:*@
+    @*<div>
             <label for="PessoaId">Código</label>
         </div>
         <div>
@@ -37,8 +40,33 @@
             <input type="t" value="@Model.Tipo" name="Tipo" />
         </div>
 
-        <p><input type="submit" value="Enviar" /></p>
+        <p><input type="submit" value="Enviar" /></p>*@
 
-    </fieldset>
-</form>
+    <div>
+        @Html.LabelFor(x => x.PessoaId)
+    </div>
+    <div>
+        @Html.EditorFor(x => x.PessoaId)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Nome)
+    </div>
+    <div>
+        @Html.EditorFor(x => x.Nome)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Tipo)
+    </div>
+    <div>
+        @Html.EditorFor(x => x.Tipo)
+    </div>
+
+    <p><input type="submit" value="Enviar" /></p>
+
+</fieldset>
+
+}
+@*</form>*@
 
